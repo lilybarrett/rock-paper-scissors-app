@@ -1,0 +1,25 @@
+<body class="clearfix">
+  <html>
+    <header>
+      <h1>MMORPS</h1>
+    </header>
+
+
+    <h4>Player score = <%=session[:player_score]%> </h4>
+    <h4>Computer score = <%=session[:computer_score]%> </h4>
+
+  <% if session[:visit_count] > 1 %>
+    <h2> Your choice was: <%=session[:player_choice]%> </h2>
+    <h2>Computer's choice was: <%=session[:computer_choice]%></h2>
+    <%end%>
+
+
+    <%unless session[:player_score] == 3 || session[:computer_score] == 3 %>
+    <%= erb :form %>
+    <%end%>
+
+<br>
+    <p><a href="/reset">Play Again</a></p>
+
+  </body>
+</html>
